@@ -14,7 +14,6 @@ type Coverage = {
 }
 
 const COVERAGES: Coverage[] = [
-  { key:'sunbear', title:'SunBear – Child Insurance', desc:'Covering mom and child from pregnancy to early childhood.', annualPremium: 1560, sumAssured: 200000 },
   { key:'life', title:'Life Insurance', desc:'Financial security for your loved ones.', annualPremium: 1200, sumAssured: 300000 },
   { key:'takaful', title:'Family Takaful', desc:'Shariah-compliant mutual protection.', annualPremium: 1080, sumAssured: 250000 },
   { key:'protection', title:'Protection', desc:'Coverage against risks and uncertainties.', annualPremium: 900, sumAssured: 100000 },
@@ -35,7 +34,7 @@ export default function Advisor(){
   const [openPay, setOpenPay] = useState(false)
   const [budget, setBudget] = useState<number | ''>('')
 
-  // New personal/financial fields
+  // personal + financial
   const [monthlyCommit, setMonthlyCommit] = useState<number | ''>('')
   const [annualSalary, setAnnualSalary] = useState<number | ''>('')
   const [age, setAge] = useState<number | ''>('')
@@ -54,7 +53,7 @@ export default function Advisor(){
     return { annualPremium: annual, monthlyPremium: annual/12, totalCoverage: coverage }
   }, [selected])
 
-  // Projection considers salary & commitments, plus savings-like selections
+  // Projection that updates with selections + income/commitments
   const projected10yr = useMemo(()=>{
     const savingsLike = ['savings','investment','education','retirement']
     const baseAnnualContrib = COVERAGES
@@ -82,13 +81,13 @@ export default function Advisor(){
     return fv
   }, [selected, monthlyCommit, annualSalary])
 
-  // Budget optimize from Sunny
+  // Sunny budget optimize
   useEffect(()=>{
     function onBudget(e: any){
       const b: number | undefined = e.detail?.budget
       if(!b || b<=0) return
       setBudget(b)
-      const priority = ['medical','life','sunbear','critical','protection','education','takaful','retirement','savings','investment']
+      const priority = ['medical','life','critical','protection','education','takaful','retirement','savings','investment']
       let items = [...selected].sort((a,bk)=> priority.indexOf(a) - priority.indexOf(bk))
       const totalAnnual = (list:string[]) => list.map(k => COVERAGES.find(c=>c.key===k)!).reduce((a,c)=>a+c.annualPremium,0)
       while(totalAnnual(items) > b && items.length){

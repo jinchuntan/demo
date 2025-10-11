@@ -30,7 +30,7 @@ export default function Landing(){
             <a href="#plans" className="btn-primary mt-6 inline-flex items-center gap-2">Explore Plans</a>
           </div>
           <div className="rounded-2xl overflow-hidden bg-neutral-900 p-2">
-            <img src="/assets/hero.png" alt="Family" className="rounded-xl w-full h-[260px] md:h-[360px] object-contain bg-neutral-900"/>
+            <img src="/assets/hero.png" alt="Family" className="rounded-xl w-full h-[260px] md:h-[360px] object-cover bg-neutral-900"/>
           </div>
         </div>
       </section>
@@ -68,7 +68,6 @@ export default function Landing(){
           <Card title="Critical Illness Cover" desc="Financial support during challenging times." price="RM 80" />
           <Card title="Education Plans" desc="Secure your children's academic future." price="RM 110" />
           <Card title="Retirement Plans" desc="Build a robust retirement fund." price="RM 180" />
-          <Card title="SunBear – Child Insurance" desc="Protection for mom and child from pregnancy to early childhood." price="RM 130" />
         </div>
       </section>
 

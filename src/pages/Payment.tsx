@@ -39,9 +39,9 @@ export default function Payment(){
           <div className="mt-4">
             <label className="label">Payment Method</label>
             <div className="flex gap-3 flex-wrap">
-              <button className={`btn \${method==='card'?'bg-yellow-400 text-black':'btn-outline'}`} onClick={()=>setMethod('card')}>Card</button>
-              <button className={`btn \${method==='fp'?'bg-yellow-400 text-black':'btn-outline'}`} onClick={()=>setMethod('fp')}>FPX / Online Banking</button>
-              <button className={`btn \${method==='ew'?'bg-yellow-400 text-black':'btn-outline'}`} onClick={()=>setMethod('ew')}>E-wallet</button>
+              <button className={\`btn \${method==='card'?'bg-yellow-400 text-black':'btn-outline'}\`} onClick={()=>setMethod('card')}>Card</button>
+              <button className={\`btn \${method==='fp'?'bg-yellow-400 text-black':'btn-outline'}\`} onClick={()=>setMethod('fp')}>FPX / Online Banking</button>
+              <button className={\`btn \${method==='ew'?'bg-yellow-400 text-black':'btn-outline'}\`} onClick={()=>setMethod('ew')}>E-wallet</button>
             </div>
           </div>
           {method==='card' && (<div className="grid md:grid-cols-2 gap-4 mt-4">

@@ -10,7 +10,7 @@ function extractBudget(text:string): number | null {
 
 export default function Chatbot(){
   const [messages, setMessages] = useState<Msg[]>([
-    { role:'bot', text: `Hello! I'm <b>Sunny</b>, your Sun Life assistant. I can suggest plans and help fit your selections to a <i>budget</i>. Try asking things like: "critical illness", "medical card", "takaful", "savings", "investment", or "child insurance". You can also say "my budget is RM 20000".` }
+    { role:'bot', text: `Hello! I'm <b>Sunny</b>, your Sun Life assistant. I can suggest plans and help fit your selections to a <i>budget</i>. Try asking things like: "critical illness", "medical card", "takaful", "savings", or "investment". You can also say "my budget is RM 20000".` }
   ])
   const [input, setInput] = useState('')
   const endRef = useRef<HTMLDivElement>(null)
@@ -18,7 +18,6 @@ export default function Chatbot(){
 
   function suggest(q:string){
     q = q.toLowerCase()
-    if(q.includes('child')) return 'SunBear – Child Insurance protects mom and child from pregnancy to early childhood.'
     if(q.includes('critical')) return 'Critical Illness pays a lump sum upon diagnosis. It pairs well with a medical card.'
     if(q.includes('medical') || q.includes('card')) return 'A Medical Card covers hospitalization and outpatient costs.'
     if(q.includes('takaful')) return 'Family Takaful is a Shariah-compliant protection plan.'
