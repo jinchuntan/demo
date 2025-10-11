@@ -1,0 +1,14 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-max { @apply max-w-7xl mx-auto px-4; }
+.card { @apply bg-neutral-900 rounded-2xl border border-neutral-800 shadow-card; }
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition; }
+.btn-primary { @apply btn bg-[color:var(--gold,#FFCD00)] text-black hover:brightness-95 px-4 py-2; }
+.btn-outline { @apply btn border border-neutral-700 text-white hover:bg-neutral-800 px-4 py-2; }
+.label { @apply text-sm font-medium text-white; }
+.input { @apply w-full rounded-lg border border-neutral-300/10 bg-neutral-800 text-white placeholder:text-white/50 px-3 py-2; }
+.checkbox { @apply h-4 w-4 rounded border border-neutral-300/20 bg-neutral-800; }
+.section { @apply container-max py-16; }
